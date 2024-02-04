@@ -364,7 +364,7 @@ def _interpolate_functional_flops_hook(*args, **kwargs):
     "should be passes to interpolate"
 
     flops = input.numel()
-    if isinstance(scale_factor, tuple) and len(scale_factor) == len(input):
+    if isinstance(scale_factor, tuple):
         flops *= int(np.prod(scale_factor, dtype=np.int64))
     else:
         flops *= scale_factor**len(input)
